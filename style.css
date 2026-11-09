@@ -1,0 +1,83 @@
+:root {
+  --green: #12633c;
+  --pale-green: #e9f6ee;
+  --border: #c5dfd0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #111;
+  font: 1rem/1.65 system-ui, sans-serif;
+}
+
+.wrap {
+  width: min(100% - 2rem, 60rem);
+  margin-inline: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 3rem;
+}
+
+header p { margin: 0.35rem 0; }
+header img { max-width: 100%; height: auto; }
+.label { color: var(--green); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.intro { font-size: 1.25rem; font-weight: 600; }
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.1;
+}
+
+nav { background: #111; }
+nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; padding: 0.6rem 0; list-style: none; }
+nav a { display: block; padding: 0.35rem 0; color: #fff; }
+nav a:hover { color: #a7edbd; }
+a { color: var(--green); text-underline-offset: 0.2em; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding-block: 2rem;
+}
+
+section {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+#about, #contact { grid-column: 1 / -1; }
+h2 { margin-top: 0; color: var(--green); }
+section p:last-child, section ul:last-child { margin-bottom: 0; }
+table { width: 100%; border-collapse: collapse; }
+caption { text-align: left; margin-bottom: 0.5rem; }
+th, td { padding: 0.55rem; border: 1px solid var(--border); text-align: left; }
+th { background: var(--pale-green); }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1rem;
+  border-top: 1px solid var(--border);
+  padding-block: 0.75rem;
+}
+
+/* Stack the columns when the screen is narrow. */
+@media (max-width: 40rem) {
+  header { flex-direction: column; align-items: flex-start; padding-block: 2rem; }
+  header img { width: 110px; }
+  main { grid-template-columns: 1fr; }
+}
